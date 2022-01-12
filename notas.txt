@@ -1,0 +1,6 @@
+- Para compartir la app en una red local, para ver como se ve en el celular, hacemos lo siguientes
+    * ng s --host=0.0.0.0 --port=4200
+    * Con esto angular da permisos a que otros dispositivos conectados a la red local puedan conectarse
+    * Obtenemos la ip local del equipo y con eso podemos acceder desde otro dispositivo
+- Typescript:
+    * Superset de js desarrollado por Microsoft para tipado de datos
