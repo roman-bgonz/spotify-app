@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TrackModel } from '@core/models/tracks.model';
 
 @Component({
   selector: 'app-generic-section',
@@ -10,7 +11,7 @@ export class GenericSectionComponent implements OnInit {
 
   // Comi si fuera un enumerable
   @Input() mode: 'small' | 'big' = 'big';
-  @Input() dataTracks: Array<any> = [];
+  @Input() dataTracks: Array<TrackModel> = [];
 
   constructor() {}
 

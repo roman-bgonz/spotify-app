@@ -6,9 +6,8 @@
       class="player--list"
       [ngClass]="{ 'card-small': mode === 'small', 'card-big': mode === 'big' }"
     >
-      <li *ngFor="let player of dataTracks">
-        <!-- <app-card-player [mode]="mode" [track]="player"></app-card-player> -->
-        {{ player.name }}
+      <li *ngFor="let track of dataTracks">
+        <app-card-player [mode]="mode" [track]="track"></app-card-player>
       </li>
     </ul>
   </div>
