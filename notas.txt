@@ -4,3 +4,4 @@
     * Obtenemos la ip local del equipo y con eso podemos acceder desde otro dispositivo
 - Typescript:
     * Superset de js desarrollado por Microsoft para tipado de datos
+- ElementRef se inicializa el:ElementRef = new ElementRef("")
