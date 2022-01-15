@@ -1,7 +1,11 @@
 <div class="side-bar">
   <div><em class="uil uil-ellipsis-h"></em></div>
   <ul class="side-bar__list list-one">
-    <li *ngFor="let item of mainMenu.defaultOptions">
+    <li
+      [routerLink]="item.router"
+      [queryParams]="item.query"
+      *ngFor="let item of mainMenu.defaultOptions"
+    >
       <div class="list-wrapper-item">
         <em [ngClass]="['uil', item.icon]"></em>
         <span class="side-bar__list list-label">{{ item.name }}</span>
