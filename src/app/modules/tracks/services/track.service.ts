@@ -1,30 +1,35 @@
 import { Injectable } from '@angular/core';
-import { TrackModel } from '@core/models/tracks.model';
-import { Observable, of, timer } from 'rxjs';
-import * as dataRaw from '../../../data/tracks.json';
+import { Observable } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../../environments/environment';
+import { TrackModel } from '../../../core/models/tracks.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TrackService {
-  dataTracksTrending$: Observable<TrackModel[]> = of([]);
-  dataTracksRandom$: Observable<TrackModel[]> = of([]);
+  constructor(private http: HttpClient) {}
 
-  constructor() {
-    const { data }: any = (dataRaw as any).default;
-    this.dataTracksTrending$ = of(data);
+  getAllTracks$(): Observable<any> {
+    return this.http.get(`${environment.api}/tracks`).pipe(
+      map(({ data }: any) => {
+        return data;
+      })
+    );
+  }
 
-    this.dataTracksRandom$ = new Observable((observer) => {
-      const track: TrackModel = {
-        _id: 9,
-        album: 'Cartel de Santa',
-        cover:
-          'https://www.sanborns.com.mx/imagenes-sanborns-ii/1200/889853882823.jpg',
-        name: 'Leve',
-        url: 'http://',
-      };
+  getAllRandom$(): Observable<any> {
+    return this.http
+      .get(`${environment.api}/tracks`)
+      .pipe(mergeMap(({ data }: any) => this.skipById(data, 1)));
+  }
 
-      timer(3500).subscribe(() => observer.next([track]));
+  // Solo como ejempl de filtro de información
+  private skipById(trackList: TrackModel[], id: number): Promise<TrackModel[]> {
+    return new Promise((resolve, reject) => {
+      const tracks = trackList.filter((t: TrackModel) => t._id !== id);
+      resolve(tracks);
     });
   }
 }

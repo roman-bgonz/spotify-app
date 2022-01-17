@@ -6,3 +6,6 @@
     * Superset de js desarrollado por Microsoft para tipado de datos
 - ElementRef se inicializa el:ElementRef = new ElementRef("")
 - Formulario reactivo => Formulario que reacciona de acuerdo al estado de sus objetos o grupo de objetos
+- Rxjs -> Librería para programación reactiva
+    * A las variables que serán observables como buena práctica se les suele agregar $ al final
+    * A los observables hay que suscribirnos, de lo contrario nunca obtendremos la data
