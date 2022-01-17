@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, mergeMap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { TrackModel } from '../../../core/models/tracks.model';
+import { TrackModel } from '@core/models/tracks.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,9 +20,12 @@ export class TrackService {
   }
 
   getAllRandom$(): Observable<any> {
-    return this.http
-      .get(`${environment.api}/tracks`)
-      .pipe(mergeMap(({ data }: any) => this.skipById(data, 1)));
+    return this.http.get(`${environment.api}/tracks`).pipe(
+      mergeMap(({ data }: any) => this.skipById(data, 1)),
+      catchError((error) => {
+        return of([]);
+      })
+    );
   }
 
   // Solo como ejempl de filtro de información
