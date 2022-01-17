@@ -21,7 +21,7 @@ export class TrackService {
 
   getAllRandom$(): Observable<any> {
     return this.http.get(`${environment.api}/tracks`).pipe(
-      mergeMap(({ data }: any) => this.skipById(data, 1)),
+      mergeMap(({ data }: any) => this.skipById(data, 2)),
       catchError((error) => {
         return of([]);
       })

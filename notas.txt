@@ -12,3 +12,5 @@
 - El async pipe nos permite suscribirnos a un observable sin necesidad de poner subscribe
     * Cuando alguien tenga conexión lenta y lance varias peticiones, estas se van a encolar, pero el async pipe
         nos permite cancelar todas y quedarnos con la más reciente
+- Un subject es un observable y un observer a la vez
+    - Un Observable es una tuberia y dentro tiene observer

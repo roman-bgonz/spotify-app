@@ -9,27 +9,15 @@ import { MultimediaService } from '../../services/multimedia.service';
   styleUrls: ['./media-player.component.css'],
 })
 export class MediaPlayerComponent implements OnInit, OnDestroy {
-  mockCover: TrackModel = {
-    cover: 'https://i.scdn.co/image/ab67616d0000b27345ca41b0d2352242c7c9d4bc',
-    album: 'Gioli & Assia',
-    name: 'BEBE (Oficial)',
-    url: 'http://localhost',
-    _id: 1,
-  };
+  mockCover!: TrackModel;
 
-  listObserver: Array<Subscription> = [];
+  listObservers$: Array<Subscription> = [];
 
-  constructor(private multimediaService: MultimediaService) {}
+  constructor(public multimediaService: MultimediaService) {}
 
-  ngOnInit(): void {
-    const observer$: Subscription = this.multimediaService.callback.subscribe(
-      (response: TrackModel) => {}
-    );
-
-    this.listObserver.push(observer$);
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
-    this.listObserver.forEach((s) => s.unsubscribe());
+    this.listObservers$.forEach((s) => s.unsubscribe());
   }
 }
