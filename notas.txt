@@ -5,3 +5,4 @@
 - Typescript:
     * Superset de js desarrollado por Microsoft para tipado de datos
 - ElementRef se inicializa el:ElementRef = new ElementRef("")
+- Formulario reactivo => Formulario que reacciona de acuerdo al estado de sus objetos o grupo de objetos
