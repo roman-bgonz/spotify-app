@@ -9,3 +9,6 @@
 - Rxjs -> Librería para programación reactiva
     * A las variables que serán observables como buena práctica se les suele agregar $ al final
     * A los observables hay que suscribirnos, de lo contrario nunca obtendremos la data
+- El async pipe nos permite suscribirnos a un observable sin necesidad de poner subscribe
+    * Cuando alguien tenga conexión lenta y lance varias peticiones, estas se van a encolar, pero el async pipe
+        nos permite cancelar todas y quedarnos con la más reciente
