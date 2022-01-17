@@ -7,6 +7,8 @@ import { TrackModel } from '@core/models/tracks.model';
   styleUrls: ['./play-list-body.component.css'],
 })
 export class PlayListBodyComponent {
+  constructor() {}
+
   @Input() tracks: TrackModel[] = [];
 
   optionSort: { property: string | null; order: string } = {
