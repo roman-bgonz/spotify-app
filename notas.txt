@@ -14,3 +14,7 @@
         nos permite cancelar todas y quedarnos con la más reciente
 - Un subject es un observable y un observer a la vez
     - Un Observable es una tuberia y dentro tiene observer
+- Angular nos ofrece un entorno de pruebas constituido por Jasmine y Karma
+    * Karma es un runner, es una librería que se va a encargar de ejecutar las diferentes pruebas que vamos a escribir
+    con Jasmine
+    * Jasmine es un framework del comportamiento del usuario que se encarga de testear bloques de código
