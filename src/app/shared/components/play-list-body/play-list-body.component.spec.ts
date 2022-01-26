@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlayListBodyComponent } from './play-list-body.component';
+import { OrderListPipe } from '../../pipe/order-list.pipe';
 
 describe('PlayListBodyComponent', () => {
   let component: PlayListBodyComponent;
@@ -8,9 +9,8 @@ describe('PlayListBodyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlayListBodyComponent ]
-    })
-    .compileComponents();
+      declarations: [PlayListBodyComponent, OrderListPipe],
+    }).compileComponents();
   });
 
   beforeEach(() => {
